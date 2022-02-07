@@ -1,0 +1,13 @@
+amqp:
+  uri: amqp://user:pass@localhost:5672/vhost
+  queue: archiveorg-telegrambot
+  consumer_tag: golang-archive.org-telegrambot
+  consecutive-requests-limit: 50
+
+telegram:
+  bot:
+    token: ...
+
+archiveorg:
+  timeout: 1m30s
+  consecutive-requests-limit: 30
