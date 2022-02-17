@@ -1,0 +1,19 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+      - feature/initial
+  workflow_dispatch:
+    inputs:
+      image_version:
+        description: "Image tag version"
+        required: true
+        default: latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
