@@ -37,11 +37,11 @@ jobs:
       - name: Set image tag + version (latest)
         if: ${{ env.build == 'true' && github.event_name != 'workflow_dispatch' }}
         run: |
-          echo "${{ env.IMAGE_TAG }}:latest" >> $GITHUB_ENV
+          echo "IMAGE_TAG=${{ env.IMAGE_TAG }}:latest" >> $GITHUB_ENV
       - name: Set image tag + version (workflow_dispatch)
         if: ${{ env.build == 'true' && github.event_name == 'workflow_dispatch' }}
         run: |
-          echo "${{ env.IMAGE_TAG }}:${{ github.event.inputs.image_version }}" >> $GITHUB_ENV
+          echo "IMAGE_TAG=${{ env.IMAGE_TAG }}:${{ github.event.inputs.image_version }}" >> $GITHUB_ENV
 
       - name: Login to GitHub Container Registry
         if: ${{ env.build == 'true' }}
